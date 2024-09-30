@@ -5,7 +5,7 @@ function Header() {
     <header className='app-header'>
       <TbCloudComputing style={{fontSize: "100px"}} />
       {/* <img src='logo512.png' alt='React logo' /> */}
-      <h1>The React Quiz</h1>
+      <h1>The Django Quiz</h1>
     </header>
   );
 }
