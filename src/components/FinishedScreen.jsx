@@ -7,7 +7,8 @@ const FinishedScreen = ({
   setUsername,
   setStudentScore,
   setLoadingStatus,
-  setSecondsRemaining
+  setSecondsRemaining,
+  setQuestionIndex
 }) => {
   const percentage = (studentScore / quizMaxScore) * 100;
   const username = localStorage.getItem("username")
@@ -24,6 +25,7 @@ const FinishedScreen = ({
     setStudentScore(0)
     setUsername(null)
     setSecondsRemaining(null)
+    setQuestionIndex(0)
   }
 
 //   const studentInfo = { score: studentScore, username };
@@ -42,7 +44,7 @@ const FinishedScreen = ({
   return (
     <>
       <p className="result">
-        <span>{emoji}</span>Hi {username}, you scored{" "}
+        <span>{emoji}</span>Hi <span style={{textTransform: "uppercase"}}>{username}</span>, you scored{" "}
         <strong>{studentScore}</strong> out of {quizMaxScore} ({percentage}%)
       </p>
       <p className="highscore">(HighScore: {studentScore} points)</p>

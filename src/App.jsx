@@ -11,6 +11,7 @@ import NextButton from "./components/NextButton";
 import FinishedScreen from "./components/FinishedScreen";
 import Footer from "./components/Footer";
 import Timer from "./components/Timer";
+import Progress from "./components/Progress";
 
 const App = () => {
   const [username, setUsername] = useState(null);
@@ -80,8 +81,8 @@ const App = () => {
   return (
     <div className="app">
       <Header />
-      <h3>{studentScore}</h3>
-      <h4>Time:{secondsRemaining} </h4>
+      {/* <h3>{studentScore}</h3>
+      <h4>Time:{secondsRemaining} </h4> */}
       <Main>
         {error && <Error error={error} />}
         {loadingStatus === "loading" && <Loader />}
@@ -98,6 +99,11 @@ const App = () => {
 
         {loadingStatus === "active" && (
           <>
+            <Progress
+              numQuestions={numQuestions}
+              questionIndex={questionIndex}
+              username={username}
+            />
             <Question
               question={questions[questionIndex]}
               selectedOption={selectedOption}
@@ -137,6 +143,7 @@ const App = () => {
             setStudentScore={setStudentScore}
             setLoadingStatus={setLoadingStatus}
             setSecondsRemaining={setSecondsRemaining}
+            setQuestionIndex={setQuestionIndex}
           />
         )}
       </Main>
